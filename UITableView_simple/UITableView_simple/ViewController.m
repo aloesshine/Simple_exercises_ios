@@ -38,6 +38,13 @@
 #pragma mark 设置行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (_allShops.count == 0) {
+        _edit.enabled = NO;
+        _select.enabled = NO;
+    } else {
+        _edit.enabled = YES;
+        _select.enabled = YES;
+    }
     if (_deletedShops.count == 0) {
         _trash.enabled = NO;
         _text.title = @"Aloes的表情包";
@@ -124,6 +131,12 @@
 //    [self presentViewController:alert animated:YES completion:nil];
 //}
 
+#pragma mark 开启编辑模式
+- (IBAction)edit:(UIBarButtonItem *)sender
+{
+    [_tableView setEditing:_tableView.editing == YES ? NO : YES animated:YES];
+}
+
 #pragma mark 全部反选
 - (IBAction)allSelect:(UIBarButtonItem *)sender
 {
@@ -146,10 +159,44 @@
 #pragma mark 删除选中行
 - (IBAction)remove:(UIBarButtonItem *)sender
 {
+    NSMutableArray *deletedRow = [NSMutableArray array];
+    NSIndexPath *path = [[NSIndexPath alloc] init];
+    for (Shop *s in _deletedShops) {
+        path = [NSIndexPath indexPathForRow:[_allShops indexOfObject:s] inSection:0];
+        [deletedRow addObject:path];
+    }
+    
     [_allShops removeObjectsInArray:_deletedShops];
     
     [_deletedShops removeAllObjects];
     
-    [_tableView reloadData];
+    [_tableView deleteRowsAtIndexPaths:deletedRow withRowAnimation:UITableViewRowAnimationTop];
+}
+
+#pragma mark 处理编辑模式中的删除事件
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle != UITableViewCellEditingStyleDelete) return;
+    
+    Shop *s = _allShops[indexPath.row];
+    
+    if ([_deletedShops containsObject:s]) {
+        [_deletedShops removeObject:s];
+    }
+    
+    [_allShops removeObject:s];
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+}
+
+#pragma mark 处理编辑模式中的排序事件
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    Shop *s = _allShops[sourceIndexPath.row];
+    
+    [_allShops removeObject:s];
+    
+    [_allShops insertObject:s atIndex:destinationIndexPath.row];
+    
+    [tableView reloadData];
 }
 @end

@@ -32,8 +32,14 @@
                                             <action selector="remove:" destination="BYZ-38-t0r" id="fdE-qR-o3H"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem enabled="NO" title="Aloes的表情包" width="218.5" style="done" id="dS5-Me-lhS">
+                                    <barButtonItem enabled="NO" title="Aloes的表情包" width="172.5" style="done" id="dS5-Me-lhS">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem title="编辑" id="Dgm-cB-w9f">
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="edit:" destination="BYZ-38-t0r" id="uIr-Nx-JJR"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem title="反选" id="a07-oW-Zpc">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,6 +54,8 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="edit" destination="Dgm-cB-w9f" id="2xS-84-K3C"/>
+                        <outlet property="select" destination="a07-oW-Zpc" id="yto-yR-ene"/>
                         <outlet property="tableView" destination="r0D-OM-eLM" id="hiN-ZP-ia6"/>
                         <outlet property="text" destination="dS5-Me-lhS" id="U5n-mx-Kfw"/>
                         <outlet property="trash" destination="oCm-DY-hRo" id="bbQ-y1-3AY"/>

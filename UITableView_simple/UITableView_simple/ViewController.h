@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *select;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *edit;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *trash;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *text;
+
+- (IBAction)edit:(UIBarButtonItem *)sender;
 
 - (IBAction)allSelect:(UIBarButtonItem *)sender;
 
