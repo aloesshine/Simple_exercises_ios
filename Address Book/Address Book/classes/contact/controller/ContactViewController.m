@@ -7,12 +7,40 @@
 //
 
 #import "ContactViewController.h"
+#import "AddViewController.h"
+#import "Contact.h"
+#import "EditViewController.h"
 
 @interface ContactViewController ()
+
+@property (nonatomic,strong) NSMutableArray *contacts;
 
 @end
 
 @implementation ContactViewController
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    AddViewController *addVC = segue.destinationViewController;
+    addVC.block = ^(Contact *con){
+        
+        // 将模型加入数组
+        [self.contacts addObject:con];
+        
+        // 刷新表格
+        [self.tableView reloadData];
+        
+    };
+    
+}
+
+- (NSMutableArray *)contacts
+{
+    if (_contacts == nil) {
+        _contacts = [[NSMutableArray alloc] init];
+    }
+    return _contacts;
+}
 
 - (IBAction)logout:(UIBarButtonItem *)sender
 {
@@ -36,6 +64,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    // 分割线处理
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -50,25 +83,55 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return self.contacts.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    static NSString *id = @"cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:id];
+    
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:id];
+    }
+    
+    // 取出当前模型
+    Contact *c = self.contacts[indexPath.row];
+    
+    cell.textLabel.text = c.name;
+    cell.detailTextLabel.text = c.phone;
     
     return cell;
 }
-*/
+
+// 点击某行时调用
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    UIStoryboard *storyb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    EditViewController *editVC = [storyb instantiateViewControllerWithIdentifier:@"edit"];
+    
+    Contact *c = self.contacts[indexPath.row];
+    
+    editVC.contact = c;
+    editVC.block = ^(){
+        [self.tableView reloadData];
+    };
+    
+    // 跳转到edit控制器
+    [self.navigationController pushViewController:editVC animated:YES];
+}
+
 
 /*
 // Override to support conditional editing of the table view.

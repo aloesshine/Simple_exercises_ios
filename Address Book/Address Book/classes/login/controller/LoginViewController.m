@@ -15,12 +15,18 @@
 
 @implementation LoginViewController
 
+// 跳转之前调用
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    segue.destinationViewController.title = [NSString stringWithFormat:@"%@'s Contact List",_idTextField.text];
+}
+
 - (IBAction)login:(UIButton *)sender
 {
     // 正在登录蒙板
-    [MBProgressHUD showMessage:@"Logging in..."];
+    [MBProgressHUD showMessage:@"Login..."];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1* NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         // 取消蒙板
         [MBProgressHUD hideHUD];
@@ -59,6 +65,8 @@
     
     [_idTextField addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];
     [_pwdTextField addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];
+    
+    [self textChange];
 }
 
 

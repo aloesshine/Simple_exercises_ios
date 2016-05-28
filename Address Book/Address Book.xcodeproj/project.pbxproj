@@ -7,18 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7A8E793A1CF705D000ADA4F4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E79391CF705D000ADA4F4 /* main.m */; };
-		7A8E793D1CF705D000ADA4F4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E793C1CF705D000ADA4F4 /* AppDelegate.m */; };
 		7A8E79431CF705D000ADA4F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8E79411CF705D000ADA4F4 /* Main.storyboard */; };
 		7A8E79451CF705D000ADA4F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A8E79441CF705D000ADA4F4 /* Assets.xcassets */; };
 		7A8E79481CF705D000ADA4F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8E79461CF705D000ADA4F4 /* LaunchScreen.storyboard */; };
 		7A8E79531CF705D000ADA4F4 /* Address_BookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E79521CF705D000ADA4F4 /* Address_BookTests.m */; };
 		7A8E795E1CF705D000ADA4F4 /* Address_BookUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E795D1CF705D000ADA4F4 /* Address_BookUITests.m */; };
-		7A8E796D1CF7076F00ADA4F4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E796C1CF7076F00ADA4F4 /* LoginViewController.m */; };
-		7A8E79701CF725D400ADA4F4 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E796F1CF725D400ADA4F4 /* ContactViewController.m */; };
 		7A8E79771CF726F300ADA4F4 /* MBProgressHUD+XMG.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E79731CF726F300ADA4F4 /* MBProgressHUD+XMG.m */; };
 		7A8E79781CF726F300ADA4F4 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7A8E79741CF726F300ADA4F4 /* MBProgressHUD.bundle */; };
 		7A8E79791CF726F300ADA4F4 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E79761CF726F300ADA4F4 /* MBProgressHUD.m */; };
+		7AC2059E1CF9BE560081AC6E /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC205851CF9BE560081AC6E /* AddViewController.m */; };
+		7AC2059F1CF9BE560081AC6E /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2058B1CF9BE560081AC6E /* ContactViewController.m */; };
+		7AC205A01CF9BE560081AC6E /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2058E1CF9BE560081AC6E /* Contact.m */; };
+		7AC205A11CF9BE560081AC6E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC205971CF9BE560081AC6E /* LoginViewController.m */; };
+		7AC205A21CF9BE560081AC6E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2059C1CF9BE560081AC6E /* AppDelegate.m */; };
+		7AC205A31CF9BE560081AC6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2059D1CF9BE560081AC6E /* main.m */; };
+		7AC205A61CF9BE810081AC6E /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC205A51CF9BE810081AC6E /* EditViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,9 +43,6 @@
 
 /* Begin PBXFileReference section */
 		7A8E79351CF705D000ADA4F4 /* Address Book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Address Book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A8E79391CF705D000ADA4F4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7A8E793B1CF705D000ADA4F4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		7A8E793C1CF705D000ADA4F4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7A8E79421CF705D000ADA4F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A8E79441CF705D000ADA4F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A8E79471CF705D000ADA4F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,15 +53,24 @@
 		7A8E79591CF705D000ADA4F4 /* Address BookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Address BookUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8E795D1CF705D000ADA4F4 /* Address_BookUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Address_BookUITests.m; sourceTree = "<group>"; };
 		7A8E795F1CF705D000ADA4F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7A8E796B1CF7076F00ADA4F4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		7A8E796C1CF7076F00ADA4F4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		7A8E796E1CF725D400ADA4F4 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
-		7A8E796F1CF725D400ADA4F4 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
 		7A8E79721CF726F300ADA4F4 /* MBProgressHUD+XMG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+XMG.h"; sourceTree = "<group>"; };
 		7A8E79731CF726F300ADA4F4 /* MBProgressHUD+XMG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+XMG.m"; sourceTree = "<group>"; };
 		7A8E79741CF726F300ADA4F4 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		7A8E79751CF726F300ADA4F4 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		7A8E79761CF726F300ADA4F4 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		7AC205841CF9BE560081AC6E /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		7AC205851CF9BE560081AC6E /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
+		7AC2058A1CF9BE560081AC6E /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
+		7AC2058B1CF9BE560081AC6E /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
+		7AC2058D1CF9BE560081AC6E /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		7AC2058E1CF9BE560081AC6E /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		7AC205961CF9BE560081AC6E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		7AC205971CF9BE560081AC6E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		7AC2059B1CF9BE560081AC6E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7AC2059C1CF9BE560081AC6E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7AC2059D1CF9BE560081AC6E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7AC205A41CF9BE810081AC6E /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		7AC205A51CF9BE810081AC6E /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,13 +121,8 @@
 		7A8E79371CF705D000ADA4F4 /* Address Book */ = {
 			isa = PBXGroup;
 			children = (
-				7A8E793B1CF705D000ADA4F4 /* AppDelegate.h */,
-				7A8E793C1CF705D000ADA4F4 /* AppDelegate.m */,
-				7A8E796B1CF7076F00ADA4F4 /* LoginViewController.h */,
-				7A8E796C1CF7076F00ADA4F4 /* LoginViewController.m */,
+				7AC205811CF9BE560081AC6E /* classes */,
 				7A8E79411CF705D000ADA4F4 /* Main.storyboard */,
-				7A8E796E1CF725D400ADA4F4 /* ContactViewController.h */,
-				7A8E796F1CF725D400ADA4F4 /* ContactViewController.m */,
 				7A8E79441CF705D000ADA4F4 /* Assets.xcassets */,
 				7A8E79461CF705D000ADA4F4 /* LaunchScreen.storyboard */,
 				7A8E79491CF705D000ADA4F4 /* Info.plist */,
@@ -131,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				7A8E79711CF726F300ADA4F4 /* MBProgressHUD */,
-				7A8E79391CF705D000ADA4F4 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -164,6 +167,162 @@
 				7A8E79761CF726F300ADA4F4 /* MBProgressHUD.m */,
 			);
 			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		7AC205811CF9BE560081AC6E /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				7AC205821CF9BE560081AC6E /* add */,
+				7AC205881CF9BE560081AC6E /* contact */,
+				7AC205901CF9BE560081AC6E /* edit */,
+				7AC205941CF9BE560081AC6E /* login */,
+				7AC2059A1CF9BE560081AC6E /* other */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		7AC205821CF9BE560081AC6E /* add */ = {
+			isa = PBXGroup;
+			children = (
+				7AC205831CF9BE560081AC6E /* controller */,
+				7AC205861CF9BE560081AC6E /* model */,
+				7AC205871CF9BE560081AC6E /* view */,
+			);
+			path = add;
+			sourceTree = "<group>";
+		};
+		7AC205831CF9BE560081AC6E /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				7AC205841CF9BE560081AC6E /* AddViewController.h */,
+				7AC205851CF9BE560081AC6E /* AddViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		7AC205861CF9BE560081AC6E /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		7AC205871CF9BE560081AC6E /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		7AC205881CF9BE560081AC6E /* contact */ = {
+			isa = PBXGroup;
+			children = (
+				7AC205891CF9BE560081AC6E /* controller */,
+				7AC2058C1CF9BE560081AC6E /* model */,
+				7AC2058F1CF9BE560081AC6E /* view */,
+			);
+			path = contact;
+			sourceTree = "<group>";
+		};
+		7AC205891CF9BE560081AC6E /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				7AC2058A1CF9BE560081AC6E /* ContactViewController.h */,
+				7AC2058B1CF9BE560081AC6E /* ContactViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		7AC2058C1CF9BE560081AC6E /* model */ = {
+			isa = PBXGroup;
+			children = (
+				7AC2058D1CF9BE560081AC6E /* Contact.h */,
+				7AC2058E1CF9BE560081AC6E /* Contact.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		7AC2058F1CF9BE560081AC6E /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		7AC205901CF9BE560081AC6E /* edit */ = {
+			isa = PBXGroup;
+			children = (
+				7AC205911CF9BE560081AC6E /* controller */,
+				7AC205921CF9BE560081AC6E /* model */,
+				7AC205931CF9BE560081AC6E /* view */,
+			);
+			path = edit;
+			sourceTree = "<group>";
+		};
+		7AC205911CF9BE560081AC6E /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				7AC205A41CF9BE810081AC6E /* EditViewController.h */,
+				7AC205A51CF9BE810081AC6E /* EditViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		7AC205921CF9BE560081AC6E /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		7AC205931CF9BE560081AC6E /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		7AC205941CF9BE560081AC6E /* login */ = {
+			isa = PBXGroup;
+			children = (
+				7AC205951CF9BE560081AC6E /* controller */,
+				7AC205981CF9BE560081AC6E /* model */,
+				7AC205991CF9BE560081AC6E /* view */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		7AC205951CF9BE560081AC6E /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				7AC205961CF9BE560081AC6E /* LoginViewController.h */,
+				7AC205971CF9BE560081AC6E /* LoginViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		7AC205981CF9BE560081AC6E /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		7AC205991CF9BE560081AC6E /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		7AC2059A1CF9BE560081AC6E /* other */ = {
+			isa = PBXGroup;
+			children = (
+				7AC2059B1CF9BE560081AC6E /* AppDelegate.h */,
+				7AC2059C1CF9BE560081AC6E /* AppDelegate.m */,
+				7AC2059D1CF9BE560081AC6E /* main.m */,
+			);
+			path = other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,12 +456,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A8E793D1CF705D000ADA4F4 /* AppDelegate.m in Sources */,
 				7A8E79791CF726F300ADA4F4 /* MBProgressHUD.m in Sources */,
-				7A8E79701CF725D400ADA4F4 /* ContactViewController.m in Sources */,
-				7A8E793A1CF705D000ADA4F4 /* main.m in Sources */,
-				7A8E796D1CF7076F00ADA4F4 /* LoginViewController.m in Sources */,
+				7AC205A61CF9BE810081AC6E /* EditViewController.m in Sources */,
+				7AC2059F1CF9BE560081AC6E /* ContactViewController.m in Sources */,
+				7AC205A11CF9BE560081AC6E /* LoginViewController.m in Sources */,
+				7AC205A01CF9BE560081AC6E /* Contact.m in Sources */,
 				7A8E79771CF726F300ADA4F4 /* MBProgressHUD+XMG.m in Sources */,
+				7AC2059E1CF9BE560081AC6E /* AddViewController.m in Sources */,
+				7AC205A31CF9BE560081AC6E /* main.m in Sources */,
+				7AC205A21CF9BE560081AC6E /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +688,7 @@
 				7A8E79641CF705D000ADA4F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7A8E79651CF705D000ADA4F4 /* Build configuration list for PBXNativeTarget "Address BookTests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +697,7 @@
 				7A8E79671CF705D000ADA4F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7A8E79681CF705D000ADA4F4 /* Build configuration list for PBXNativeTarget "Address BookUITests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +706,7 @@
 				7A8E796A1CF705D000ADA4F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
