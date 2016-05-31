@@ -11,6 +11,9 @@
 #import "Contact.h"
 #import "EditViewController.h"
 
+// 获取缓存路径
+#define filePath [ NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"contacts.data"]
+
 @interface ContactViewController ()
 
 @property (nonatomic,strong) NSMutableArray *contacts;
@@ -24,8 +27,12 @@
     AddViewController *addVC = segue.destinationViewController;
     addVC.block = ^(Contact *con){
         
+        
         // 将模型加入数组
         [self.contacts addObject:con];
+        
+        // 将模型数组归档
+        [NSKeyedArchiver archiveRootObject:_contacts toFile:filePath];
         
         // 刷新表格
         [self.tableView reloadData];
@@ -37,7 +44,12 @@
 - (NSMutableArray *)contacts
 {
     if (_contacts == nil) {
-        _contacts = [[NSMutableArray alloc] init];
+      
+        _contacts = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+        
+        if (_contacts == nil) {
+            _contacts = [[NSMutableArray alloc] init];
+        }
     }
     return _contacts;
 }
@@ -126,6 +138,9 @@
     editVC.contact = c;
     editVC.block = ^(){
         [self.tableView reloadData];
+        
+        // 归档
+        [NSKeyedArchiver archiveRootObject:_contacts toFile:filePath];
     };
     
     // 跳转到edit控制器
@@ -141,17 +156,18 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 删除模型数据
+    [_contacts removeObjectAtIndex:indexPath.row];
+    
+    [NSKeyedArchiver archiveRootObject:_contacts toFile:filePath];
+    
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.

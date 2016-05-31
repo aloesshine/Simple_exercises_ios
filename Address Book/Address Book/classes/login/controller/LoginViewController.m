@@ -9,6 +9,12 @@
 #import "LoginViewController.h"
 #import "MBProgressHUD+XMG.h"
 
+#define keyId @"id"
+#define keyPwd @"password"
+#define keyRmb @"remember"
+#define keyAutoLogin @"autoLogin"
+
+
 @interface LoginViewController ()
 
 @end
@@ -33,6 +39,15 @@
         
         if ([_idTextField.text isEqualToString:@"gcx"] && [_pwdTextField.text isEqualToString:@"123"] )
         {
+            // 存储数据，用户名，密码，记住密码，自动登录
+            // 偏好设置
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:_idTextField.text forKey:keyId];
+            [defaults setObject:_pwdTextField.text forKey:keyPwd];
+            [defaults setBool:_rmbSwitch.on forKey:keyRmb];
+            [defaults setBool:_autologinSwitch.on forKey:keyAutoLogin];
+            
+            // 跳转到联系人界面
             [self performSegueWithIdentifier:@"login2contact" sender:nil];
         }
         else
@@ -62,11 +77,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    // 读取存储数据
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *id = [defaults stringForKey:keyId];
+    NSString *pwd = [defaults stringForKey:keyPwd];
+    BOOL rmbp = [defaults boolForKey:keyRmb];
+    BOOL autol = [defaults boolForKey:keyAutoLogin];
+    
+    _idTextField.text = id;
+    
+    if (rmbp == YES) {
+        _pwdTextField.text = pwd;
+    }
+    
+    _rmbSwitch.on = rmbp;
+    _autologinSwitch.on = autol;
+    
+    if (autol == YES) {
+        [self login:nil];
+    }
+    
     
     [_idTextField addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];
     [_pwdTextField addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];
     
     [self textChange];
+    
 }
 
 
