@@ -1,0 +1,174 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>CaCal</title>
+        <link href="http://www.runoob.com/static/ionic/css/ionic.min.css" rel="stylesheet">
+        <script src="http://www.runoob.com/static/ionic/js/ionic.bundle.min.js"></script>
+        <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+        <style type="text/css">
+          .a-upload {
+              padding: 4px 10px;
+              height: 20px;
+              line-height: 20px;
+              position: relative;
+              cursor: pointer;
+              color: #888;
+              background: #fafafa;
+              border: 1px solid #ddd;
+              border-radius: 4px;
+              overflow: hidden;
+              display: inline-block;
+              *display: inline;
+              *zoom: 1
+          }
+
+          .a-upload  input {
+              position: absolute;
+              font-size: 100px;
+              right: 0;
+              top: 0;
+              opacity: 0;
+              filter: alpha(opacity=0);
+              cursor: pointer
+          }
+
+          .a-upload:hover {
+              color: #444;
+              background: #eee;
+              border-color: #ccc;
+              text-decoration: none
+          }
+          .file {
+              position: relative;
+              display: inline-block;
+              background: #D0EEFF;
+              border: 1px solid #99D3F5;
+              border-radius: 4px;
+              padding: 4px 12px;
+              overflow: hidden;
+              color: #1E88C7;
+              text-decoration: none;
+              text-indent: 0;
+              line-height: 20px;
+              margin-top: 10px;
+          }
+          .file input {
+              position: absolute;
+              font-size: 100px;
+              text-align: center;
+              opacity: 0;
+          }
+          .file:hover {
+              background: #AADFFD;
+              border-color: #78C3F3;
+              color: #004974;
+              text-decoration: none;
+          }
+          #module_choose{
+            text-align: center;
+          }
+          body{
+              text-align: center;
+              background-image:url(http://nanf0621.github.io/cacal/pic/bg-2.jpg);
+              background-attachment:fixed;
+              background-repeat:no-repeat;
+              background-position:0px center;
+              background-size: 100% auto;
+          }
+          #fileList{
+              margin:10em auto auto auto;
+              /*padding-right:20%;*/
+            height: 300px;
+            width: 300px;
+            text-align: center;
+          }
+        #image{
+            text-align: center;
+
+        }
+        #txt{
+            text-align: center;
+
+        }
+          #check_box{
+            text-align: center;
+          }
+        .act{
+            left:10%;
+            right:10%;
+            text-align: center;
+        }
+        </style>
+      
+    </head>
+    
+    <!--body ng-app="todo" ng-controller="TodoCtrl"-->
+    <body>
+        <div id="filelist">
+            <div id="image"></div>
+            <div id="txt"></div>
+        </div>
+        
+        <input type="file" id="fileElem" multiple accept="image/*" style="display:none" onchange="handleFiles(this.files)">
+        <a href="#" id="fileSelect">Select some files</a>
+        
+    </body>
+    
+<script type="text/javascript">
+      window.URL = window.URL || window.webkitURL;
+
+    var fileSelect = document.getElementById("fileSelect"),
+        fileElem = document.getElementById("fileElem"),
+        //fileList = document.getElementById("fileList");
+        ima = document.getElementById("image");
+        txt = document.getElementById("txt");
+
+    fileSelect.addEventListener("click", function (e) {
+      if (fileElem) {
+        fileElem.click();
+      }
+      e.preventDefault(); // prevent navigation to "#"
+    }, false);
+
+      function handleFiles(files) {
+        if (!files.length) {
+          fileList.innerHTML = "<p>No files selected!</p>";
+        } else {
+            ima.innerHTML = "";
+            txt.innerHTML = "";
+
+        
+        /*
+        var list = document.createElement("ul");
+        fileList.appendChild(list);*/
+        //for (var i = 0; i < files.length; i++) {
+          //var li = document.createElement("li");
+          
+          //list.appendChild(li);
+         
+          var img = document.createElement("img");
+          img.src = window.URL.createObjectURL(files[0]);
+          img.width = 200;
+          img.onload = function() {
+            window.URL.revokeObjectURL(this.src);
+          }
+          //img.text-align = center;
+          ima.appendChild(img);
+          //var li2 = document.createElement("li");
+          //var list2 = document.createElement("ul");
+          //fileList.appendChild(list2);
+
+          //list.appendChild(li2);
+          var info = document.createElement("span");
+          info.innerHTML = files[0].name + ": " + files[0].size + " bytes";
+          txt.appendChild(info);
+          fileList[0].className = "act";
+          fileList[1].className = "act";
+
+
+        //}
+      }
+    }
+    </script>
+</html>

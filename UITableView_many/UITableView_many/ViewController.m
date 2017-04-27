@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "Province.h"
 
-@interface ViewController () <UITableViewDataSource>
+@interface ViewController () <UITableViewDataSource,UITableViewDelegate>
 {
     NSArray *_allCities;
 }
@@ -37,16 +37,25 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    NSLog(@"%s",__func__);
     return _allCities.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"%s",__func__);
     return [[_allCities[section] cities] count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"%s",__func__);
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"%s",__func__);
     UITableViewCell *row = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     row.textLabel.text = [_allCities[indexPath.section] cities][indexPath.row];
     
@@ -55,16 +64,19 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
+    //NSLog(@"%s",__func__);
     return [_allCities[section] header];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
+    //NSLog(@"%s",__func__);
     return [_allCities[section] footer];
 }
 
 - (NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
+    // NSLog(@"%s",__func__);
     NSMutableArray *index = [NSMutableArray array];
     for (Province *p in _allCities)
     {
